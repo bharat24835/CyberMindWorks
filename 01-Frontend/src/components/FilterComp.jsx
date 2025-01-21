@@ -29,7 +29,7 @@ const FilterComp = ({jobs , setJobs}) => {
   const fetchJobTitle = async()=>{
     try {
 
-      const res = await axios.get("http://localhost:3000/api/v1/job/allTitles");
+      const res = await axios.get("https://cybermindworks-backend-project.onrender.com/api/v1/job/allTitles");
       if(res.data.status === 'Success'){
         setGivenJobTitles(res.data.data);
         // console.log(res.data.data);
@@ -44,7 +44,7 @@ const FilterComp = ({jobs , setJobs}) => {
   const fetchAllLocations = async()=>{
     try {
 
-      const res = await axios.get("http://localhost:3000/api/v1/job/allLocations");
+      const res = await axios.get("https://cybermindworks-backend-project.onrender.com/api/v1/job/allLocations");
       if(res.data.status === 'Success'){
         setGivenLocation(res.data.data);
         // console.log(res.data.data);
@@ -74,7 +74,7 @@ useEffect(()=>{
       console.log(`minSalary` , payRange[0]);
       console.log(`maxSalary` , payRange[1]);
       
-      const res = await axios.post("http://localhost:3000/api/v1/job/filterJobs" , {
+      const res = await axios.post("https://cybermindworks-backend-project.onrender.com/api/v1/job/filterJobs" , {
         titles : jobTitle  ,
         locations : preferredLocation ,
         jobTypes  : jobType,
@@ -84,7 +84,7 @@ useEffect(()=>{
       console.log("WE are in filtering function");
       
       if(res.data.status === 'Success'){
-        console.log(res.data.data);
+        // console.log(res.data.data);
         
                setJobs(res.data.data);
       }

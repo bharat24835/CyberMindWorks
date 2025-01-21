@@ -21,7 +21,7 @@ function App() {
   const fetchAllJobs = async()=>{
     try {
 
-      const res = await axios.get("http://localhost:3000/api/v1/job/allJobs" );
+      const res = await axios.get("https://cybermindworks-backend-project.onrender.com/api/v1/job/allJobs" );
 
       // console.log(res.data);
       if(res.data.status === 'Success'){
