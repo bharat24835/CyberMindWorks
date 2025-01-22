@@ -19,14 +19,13 @@ import {
 const CardComp2 = ({  job}) => {
 
   const getTimeBeforeCreated = (createdAt) => {
-    const createdDate = new Date(createdAt); // Parse the date
-    const now = new Date(); // Current date and time
-  
-    const timeDifference = now - createdDate; // Time difference in milliseconds
-    const hoursDifference = timeDifference / (1000 * 60 * 60); // Convert milliseconds to hours
+    const createdDate = new Date(createdAt); 
+    const now = new Date();   
+    const timeDifference = now - createdDate; 
+    const hoursDifference = timeDifference / (1000 * 60 * 60); 
   
     if (hoursDifference > 24) {
-      const daysDifference = Math.floor(hoursDifference / 24); // Calculate number of days
+      const daysDifference = Math.floor(hoursDifference / 24); 
       return `${daysDifference} days ago`;
     } else {
       return `${Math.floor(hoursDifference)} hrs ago`;
