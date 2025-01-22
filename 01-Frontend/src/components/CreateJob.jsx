@@ -129,6 +129,9 @@ const CreateJob = ({ fetchAllJobs,  open, onClose }) => {
         label="Salary Range"
         name="salaryRangeMin"
         value={formData.salaryRangeMin}
+        helperText={
+          formData.salaryRangeMin > 100 ? "Value cannot be greater than 100" : ""
+        }
         onChange={handleChange}
         type="number"
         InputProps={{
