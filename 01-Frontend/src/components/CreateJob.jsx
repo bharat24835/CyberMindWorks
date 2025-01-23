@@ -37,9 +37,14 @@ const CreateJob = ({ fetchAllJobs,  open, onClose }) => {
       const handlePublish = async () => {
        try {
 
-         const desc = formData.jobDescription.split("\n");
+        //  const desc = formData.jobDescription.split("\n");
+         const desc2 = formData.jobDescription.split("\n").filter((ele , i , arr)=>{
+          if(ele.trim().length > 0) return true;
+          return false;
+         })
 
-        const res = await axios.post("https://cybermindworks-backend-project.onrender.com/api/v1/job/createJob" , {title : formData.jobTitle , company : formData.companyName , location : formData.location , jobType : formData.jobType , experience : formData.experience , minSalary : parseInt(formData.salaryRangeMin) , maxSalary : parseInt(formData.salaryRangeMax) , description : desc });
+
+        const res = await axios.post("https://cybermindworks-backend-project.onrender.com/api/v1/job/createJob" , {title : formData.jobTitle , company : formData.companyName , location : formData.location , jobType : formData.jobType , experience : formData.experience , minSalary : parseInt(formData.salaryRangeMin) , maxSalary : parseInt(formData.salaryRangeMax) , description : desc2 });
         
        
         // console.log(res.data);

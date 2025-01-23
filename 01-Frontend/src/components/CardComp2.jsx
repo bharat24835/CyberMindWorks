@@ -35,10 +35,10 @@ const CardComp2 = ({  job}) => {
   const postedTime = getTimeBeforeCreated(job.createdAt);
   return (
     <div >
-    <Card sx={{ maxWidth: 316, borderRadius: 3, overflow: 'hidden' , maxHeight :'360px' }}>
+    <Card sx={{ maxWidth: 316, minHeight : '300px', borderRadius: 3, overflow: 'hidden' , maxHeight :'360px' }}>
     <CardContent sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', flexDirection :"column" ,  alignItems: 'flex-start', gap: 2 }}>
-        <Stack direction={'row'}  alignItems="center"
+        <Stack direction={'row'}  
   justifyContent="space-between" sx={{width :'100%'}}  >
         <Avatar
           src={job.companyLogo}
@@ -56,7 +56,7 @@ const CardComp2 = ({  job}) => {
             {job.title}
           </Typography>
           <Stack direction="row" spacing={2} flexWrap="wrap" alignItems="center"
-    justifyContent="space-between" // Ensures equal spacing across the entire width
+    justifyContent="space-around" // Ensures equal spacing across the entire width
     sx={{ width: "100%" }} >
             <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
               <PersonAddAltOutlinedIcon sx={{ fontSize: 20, mr: 0.5 }} />
@@ -75,7 +75,7 @@ const CardComp2 = ({  job}) => {
        
       </Box>
 
-      
+      <Box minHeight={'100px'}>
       <List sx={{ mt: 1 }}>
   {job.description.map((item, index) => (
     <ListItem key={index} sx={{ py: 0.5 , px : 0.7 }}>
@@ -85,6 +85,7 @@ const CardComp2 = ({  job}) => {
     </ListItem>
   ))}
 </List>
+</Box>
 
       <Button
         variant="contained"
