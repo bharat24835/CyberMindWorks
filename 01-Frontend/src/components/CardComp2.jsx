@@ -38,7 +38,8 @@ const CardComp2 = ({  job}) => {
     <Card sx={{ maxWidth: 316, borderRadius: 3, overflow: 'hidden' , maxHeight :'360px' }}>
     <CardContent sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', flexDirection :"column" ,  alignItems: 'flex-start', gap: 2 }}>
-        <Stack direction={'row'}  gap={'130px'} justifyContent="flex-end"  >
+        <Stack direction={'row'}  alignItems="center"
+  justifyContent="space-between" sx={{width :'100%'}}  >
         <Avatar
           src={job.companyLogo}
           alt="Company Logo"
@@ -54,18 +55,20 @@ const CardComp2 = ({  job}) => {
           <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
             {job.title}
           </Typography>
-          <Stack direction="row" spacing={2} flexWrap="wrap">
+          <Stack direction="row" spacing={2} flexWrap="wrap" alignItems="center"
+    justifyContent="space-between" // Ensures equal spacing across the entire width
+    sx={{ width: "100%" }} >
             <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
               <PersonAddAltOutlinedIcon sx={{ fontSize: 20, mr: 0.5 }} />
               <Typography variant="body2">{job.experience} yr Exp</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
-              <CorporateFareOutlinedIcon sx={{ fontSize: 20, mr: 0.5 }} />
+              <CorporateFareOutlinedIcon sx={{ fontSize: 20, mr: 0.2  }} />
               <Typography variant="body2">{job.location}</Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
-              <CurrencyRupeeIcon sx={{ fontSize: 20, mr: 0.5 }} />
-              <Typography variant="body2">{job.maxSalary} K </Typography>
+              <CurrencyRupeeIcon sx={{ fontSize: 20, mr: 0.1 }} />
+              <Typography variant="body2">{job.maxSalary}K</Typography>
             </Box>
           </Stack>
         </Box>

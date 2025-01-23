@@ -253,7 +253,19 @@ useEffect(()=>{
         // valueLabelDisplay="auto"
         disableSwap
         
-        sx={{ width: "400px" , margin : '0px 20px' }}
+        sx={{ width: "400px" , margin : '0px 20px' ,"& .MuiSlider-thumb": {
+      backgroundColor: "black", // Changes the color of the slider dots (thumbs) to black
+      width: 16, // Reduces the size of the thumb (optional)
+      height: 16,
+    },
+    "& .MuiSlider-rail": {
+      backgroundColor: "gray", // Changes the color of the inactive (rail) part of the slider line
+      height: 2, // Reduces the thickness of the slider line
+    },
+    "& .MuiSlider-track": {
+      backgroundColor: "black", // Changes the color of the active part of the slider line
+      height: 3, // Reduces the thickness of the slider line
+    }, }}
       />
 </Stack>
         </Toolbar>
