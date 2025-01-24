@@ -9,6 +9,8 @@ import FilterComp from './components/FilterComp'
 import CreateJob from './components/CreateJob'
 import axios from 'axios'
 import DisplayJobComp from './components/DisplayJobComp'
+import CreateJob2 from './components/CreateJob2'
+
 
 function App() {
 
@@ -60,7 +62,9 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Navbar handleOpenPopup = {handleOpenPopup} />
     <FilterComp jobs ={jobs} setJobs = {setJobs} />
-    <CreateJob fetchAllJobs= {fetchAllJobs}  open={isPopupOpen} onClose={handleClosePopup} />
+   
+    {/* <CreateJob fetchAllJobs= {fetchAllJobs}  open={isPopupOpen} onClose={handleClosePopup} /> */}
+    <CreateJob2 fetchAllJobs= {fetchAllJobs}  open={isPopupOpen} onClose={handleClosePopup} />
     {/* <CardComp2 {...jobData} /> */}
     <DisplayJobComp jobs= {jobs}/>
 

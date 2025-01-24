@@ -6,7 +6,10 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Autocomplete, TextField, InputAdornment, Stack, Typography } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Slider from '@mui/material/Slider';
+import RecordVoiceOverOutlinedIcon from '@mui/icons-material/RecordVoiceOverOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import axios from "axios";
 const FilterComp = ({jobs , setJobs}) => {
   const [jobTitle, setJobTitle] = useState([]);
@@ -117,19 +120,13 @@ useEffect(()=>{
     // console.log("Selected:", newValue);
   };
 
-  // useEffect(()=>{
-  //   console.log(jobTitle);
-  //   console.log(jobType);
-  //   console.log(preferredLocation);
-  //   console.log(payRange);
-    
-    
-  // } )
+
 
   return (
     <div>
       <AppBar
         color="white"
+        elevation={1}
         sx={{
           height: "85px",
           width: "100%",
@@ -137,17 +134,33 @@ useEffect(()=>{
           position: "fixed",
           top: "70px",
           marginTop: "0px",
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
         }}
         
       >
         <Toolbar >
+          <Box display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      sx={{
+        padding: " 0 5px",
+        border: "0px solid #ccc",
+        borderRadius: "8px",
+        backgroundColor: "#fff",
+        gap: "5px",
+        marginTop:"0px"
+      }}>
+          <Box display="flex" alignItems="center" sx={{  paddingRight: "5px" }}>
+            <SearchOutlinedIcon sx={{marginTop:'8px' , marginRight:'10px', color : "gray"}}/>
+          
           <Autocomplete
-            sx={{ width: "320px" , paddingRight :'5px' , borderRight :'2px groove' }}
+          popupIcon={<KeyboardArrowDownOutlinedIcon />} 
+            sx={{ width: "280px" , paddingRight :'5px' , borderRight :'2px groove ' }}
             options={givenJobTitle}
             multiple
             limitTags={1}
             onChange={handleChange1}
-            //  size="small"
+             size="small"
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -155,27 +168,42 @@ useEffect(()=>{
                 label="Search By Job Title"
                 InputProps={{
                   ...params.InputProps,
-                  disableUnderline: true, // Removes the underline
+                  disableUnderline: true, 
+                  
                 }}
+                
                 sx={{
                   "& .MuiInputBase-root": {
-                    border: "none", // Removes the outer border
+                    border: "none",
                   },
                   "& .MuiInput-underline:before": {
-                    borderBottom: "none", // Removes the underline (before focus)
+                    borderBottom: "none", 
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottom: "none", // Removes the underline (after focus)
+                    borderBottom: "none", 
                   },
                   "& .MuiInput-root": {
-                    borderBottom: "none", // Ensures no underline anywhere
+                    borderBottom: "none",
                   },
                 }}
               />
             )}
+            ListboxProps={{
+              style: {
+                maxHeight: "200px", // Restricts the dropdown height
+                overflowY: "auto", // Enables scrolling for dropdown
+              },
+            }}
           />
+          </Box>
+          <Box display="flex" alignItems="center" sx={{  paddingRight: "5px" }}>
+            <LocationOnOutlinedIcon sx={{marginTop:'8px' , marginRight:'10px', color : "gray"}}/>
+          
+         
+          
           <Autocomplete
-            sx={{ width: "320px" , padding : '0px 10px' ,  borderRight :'2px groove' }}
+            popupIcon={<KeyboardArrowDownOutlinedIcon />}
+            sx={{ width: "300px" , padding : '0px 10px' ,  borderRight :'2px groove' }}
             options={givenLocation}
             multiple
             limitTags={1}
@@ -207,13 +235,17 @@ useEffect(()=>{
               />
             )}
           />
-          <Autocomplete
-            sx={{ width: "320px" , padding : '0px 10px' ,  borderRight :'2px groove' }}
+          </Box>
+          <Box display="flex" alignItems="center" sx={{  paddingRight: "5px" }}>
+            <RecordVoiceOverOutlinedIcon sx={{marginTop:'8px' , marginRight:'10px', color : "gray"}}/>
+            <Autocomplete
+            popupIcon={<KeyboardArrowDownOutlinedIcon />}
+            sx={{ width: "300px" , padding : '0px 10px' ,  borderRight :'2px groove' }}
             options={givenJobType}
             multiple
             limitTags={1}
             onChange={handleChange3}
-            //  size="small"
+             size="small"
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -240,10 +272,13 @@ useEffect(()=>{
               />
             )}
           />
+       
+          </Box>
+          
 
 <Stack>
   <Stack direction={'row'} justifyContent={"space-between"} padding={"0px 20px"}>
-    <Typography variant="body2">Salary per Month</Typography>
+    <Typography variant="body2" sx={{fontSize:'14px', fontWeight:'550'}}>Salary per Month</Typography>
     <Typography variant="body2">₹{payRange[0]}k - ₹{payRange[1]}k</Typography>
   </Stack>
         <Slider
@@ -253,21 +288,30 @@ useEffect(()=>{
         // valueLabelDisplay="auto"
         disableSwap
         
-        sx={{ width: "400px" , margin : '0px 20px' ,"& .MuiSlider-thumb": {
-      backgroundColor: "black", // Changes the color of the slider dots (thumbs) to black
-      width: 16, // Reduces the size of the thumb (optional)
-      height: 16,
+        sx={{ width: "340px" , margin : '0px 20px' ,"& .MuiSlider-thumb": {
+      backgroundColor: "transparent",
+      border: "8.0px solid black", 
+      padding:'0px 0px',
+      margin:'0px 0px',
+      width: 20, 
+      height: 20,
     },
     "& .MuiSlider-rail": {
-      backgroundColor: "gray", // Changes the color of the inactive (rail) part of the slider line
-      height: 2, // Reduces the thickness of the slider line
+      backgroundColor: "gray",
+      height: 2 , 
+      padding:'0px 2px'
     },
     "& .MuiSlider-track": {
-      backgroundColor: "black", // Changes the color of the active part of the slider line
-      height: 3, // Reduces the thickness of the slider line
+      backgroundColor: "black", 
+      height: 3,
+      border :'1px solid black',
+      margin:'0px 0px',
+      
+       
     }, }}
       />
 </Stack>
+</Box>
         </Toolbar>
       </AppBar>
     </div>
