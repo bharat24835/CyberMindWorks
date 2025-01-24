@@ -56,7 +56,7 @@ const CardComp2 = ({  job}) => {
             {job.title}
           </Typography>
           <Stack direction="row" spacing={2} flexWrap="wrap" alignItems="center"
-    justifyContent="space-around" // Ensures equal spacing across the entire width
+    justifyContent="space-around" 
     sx={{ width: "100%" }} >
             <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
               <PersonAddAltOutlinedIcon sx={{ fontSize: 20, mr: 0.5 }} />

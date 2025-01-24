@@ -253,20 +253,20 @@ useEffect(()=>{
                 label=" Job Type"
                 InputProps={{
                   ...params.InputProps,
-                  disableUnderline: true, // Removes the underline
+                  disableUnderline: true, 
                 }}
                 sx={{
                   "& .MuiInputBase-root": {
-                    border: "none", // Removes the outer border
+                    border: "none", 
                   },
                   "& .MuiInput-underline:before": {
-                    borderBottom: "none", // Removes the underline (before focus)
+                    borderBottom: "none",
                   },
                   "& .MuiInput-underline:after": {
-                    borderBottom: "none", // Removes the underline (after focus)
+                    borderBottom: "none", 
                   },
                   "& .MuiInput-root": {
-                    borderBottom: "none", // Ensures no underline anywhere
+                    borderBottom: "none", 
                   },
                 }}
               />
@@ -285,12 +285,11 @@ useEffect(()=>{
         getAriaLabel={() => 'Minimum distance shift'}
         value={payRange}
         onChange={handleChange4}
-        // valueLabelDisplay="auto"
         disableSwap
         
         sx={{ width: "340px" , margin : '0px 20px' ,"& .MuiSlider-thumb": {
       backgroundColor: "transparent",
-      border: "8.0px solid black", 
+      border: "10.0px solid black", 
       padding:'0px 0px',
       margin:'0px 0px',
       width: 20, 

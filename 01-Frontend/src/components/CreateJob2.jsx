@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 import {
+  Box , 
   Dialog,
   DialogTitle,
   DialogContent,
@@ -39,7 +42,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
   };
   const handlePublish = async () => {
     try {
-      //  const desc = formData.jobDescription.split("\n");
+      
       const desc2 = formData.jobDescription
         .split("\n")
         .filter((ele, i, arr) => {
@@ -88,126 +91,30 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
     }
   };
   return (
-    //  <Dialog open={open} onClose={onClose}    >
-    //     <DialogTitle>Create Job Opening</DialogTitle>
-    //     <DialogContent>
-    //       <TextField
-
-    //         margin="dense"
-    //         placeholder='Software Engineer , ...'
-    //         name="jobTitle"
-    //         value={formData.jobTitle}
-    //         onChange={handleChange}
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         name="companyName"
-    //         value={formData.companyName}
-    //         onChange={handleChange}
-    //         placeholder="e.g., Amazon, Microsoft, Swiggy"
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         name="location"
-    //         value={formData.location}
-    //         onChange={handleChange}
-    //         placeholder="Choose Preferred Location"
-    //       />
-    //       <TextField
-    //         sx={{width:"100px"}}
-    //         margin="dense"
-    //         select
-    //         placeholder='Full Time'
-    //         name="jobType"
-    //         value={formData.jobType}
-    //         onChange={handleChange}
-    //       >
-    //         <MenuItem value="Part Time">Part Time</MenuItem>
-    //         <MenuItem value="Full Time">Full Time</MenuItem>
-    //         <MenuItem value="Contract">Contract</MenuItem>
-    //         <MenuItem value="Internship">Internship</MenuItem>
-    //       </TextField>
-    //       <TextField
-
-    //         margin="dense"
-    //         label="Experience (e.g 1-3)"
-    //         name="experience"
-    //         value={formData.experience}
-    //         onChange={handleChange}
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         label="Salary Range"
-    //         name="salaryRangeMin"
-    //         value={formData.salaryRangeMin}
-    //         helperText={
-    //           formData.salaryRangeMin > 100 ? "Value cannot be greater than 100" : ""
-    //         }
-    //         onChange={handleChange}
-    //         type="number"
-    //         InputProps={{
-    //           startAdornment: <InputAdornment position="start">₹</InputAdornment>,
-    //           placeholder: "Min Salary (in thousand)",
-    //         }}
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         name="salaryRangeMax"
-    //         value={formData.salaryRangeMax}
-    //         helperText={
-    //           formData.salaryRangeMax > 100 ? "Value cannot be greater than 100" : ""
-    //         }
-    //         onChange={handleChange}
-    //         type="number"
-    //         InputProps={{
-    //           startAdornment: <InputAdornment position="start">₹</InputAdornment>,
-    //           placeholder: "Max Salary (in thousand)",
-    //         }}
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         label="Application Deadline"
-    //         name="applicationDeadline"
-    //         type="date"
-    //         value={formData.applicationDeadline}
-    //         onChange={handleChange}
-    //         InputLabelProps={{ shrink: true }}
-    //       />
-    //       <TextField
-
-    //         margin="dense"
-    //         label="Job Description"
-    //         name="jobDescription"
-    //         value={formData.jobDescription}
-    //         onChange={handleChange}
-    //         placeholder="Please share a description to let the candidate know more about the job role"
-    //         multiline
-    //         rows={4}
-    //       />
-    //     </DialogContent>
-    //     <DialogActions>
-    //       <Button onClick={onClose}>Save Draft</Button>
-    //       <Button variant="contained" color="primary" onClick={handlePublish}>
-    //         Publish
-    //       </Button>
-    //     </DialogActions>
-    //   </Dialog>
-
-    <Dialog open={open} onClose={onClose} fullWidth sx={{ minWidth: "500px" }}>
-      <DialogTitle>Create Job Opening</DialogTitle>
+   
+    <Box>
+    <Dialog open={open} onClose={onClose} fullWidth  
+    sx={{
+      
+      minWidth: "700px", 
+      "& .MuiPaper-root": {
+        borderRadius: "20px", 
+      },
+    }}>
+      <DialogTitle  variant="h5" sx={{
+      display: "flex",
+      justifyContent: "center",
+      textAlign: "center", 
+      fontWeight: 600, 
+    }}>Create Job Opening</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Typography
               sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray",
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }}
       
@@ -219,7 +126,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -227,7 +134,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black", 
                   },
                 },
               }}
@@ -243,9 +150,9 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
           </Grid>
           <Grid item xs={6}>
             <Typography  sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray", 
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }} >Company Name</Typography>
             <TextField
@@ -257,7 +164,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray",
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -265,7 +172,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black", 
                   },
                 },
               }}
@@ -276,9 +183,9 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
           </Grid>
           <Grid item xs={6}>
           <Typography  sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray", 
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }} >Location
               </Typography>
@@ -291,7 +198,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -299,7 +206,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black", 
                   },
                 },
               }}
@@ -310,9 +217,9 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
           </Grid>
           <Grid item xs={6}>
           <Typography  sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray", 
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }} >Job Type
               </Typography>
@@ -351,9 +258,9 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
           <Grid item xs={3}>
           <Typography
               sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray",
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }}
               id="job-title-label"
@@ -372,7 +279,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -380,7 +287,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black" , 
                   },
                 },
               }}
@@ -401,7 +308,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                 marginTop:'22px',
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -409,7 +316,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black",
                   },
                 },
               }}
@@ -421,9 +328,9 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
           <Grid item xs={6}>
           <Typography
               sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray", 
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }}
               id="job-title-label"
@@ -440,7 +347,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -448,21 +355,22 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black",
                   },
                 },
               }}
               onFocus={(e) =>
                 e.target.closest(".MuiOutlinedInput-root")?.classList.add("Mui-focused")
               }
+              
             />
           </Grid>
           <Grid item xs={12}>
           <Typography
               sx={{ fontWeight: 600 ,
-                color: "gray", // Default color
+                color: "gray", 
                 "&.focused": {
-                  color: "black", // Color when focused
+                  color: "black", 
                 },
               }}
               id="job-title-label"
@@ -481,7 +389,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                 
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
-                  borderColor: "gray", // Default border color
+                  borderColor: "gray", 
                   "& fieldset": {
                     borderColor: "gray",
                   },
@@ -489,7 +397,7 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
                     borderColor: "gray",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: "black", // Border color when focused
+                    borderColor: "black", 
                   },
                 },
               }}
@@ -499,20 +407,40 @@ const CreateJob2 = ({ fetchAllJobs, open, onClose }) => {
             />
           </Grid>
         </Grid>
-        <Grid container justifyContent="flex-end" spacing={2} marginTop={2}>
+        <Grid container justifyContent="space-between" spacing={2} marginTop={2}>
           <Grid item>
-            <Button variant="outlined" onClick={onClose} color="secondary">
-              Cancel
+            <Button variant="outlined" onClick={onClose} color="secondary"  endIcon={<KeyboardDoubleArrowDownIcon/>}
+            sx={{
+              borderColor: "black", 
+              color: "black", 
+              width: "150px", 
+              fontSize: "12px", 
+              height:'45px',
+              borderRadius: "10px", 
+              "&:hover": {
+                borderColor: "black", 
+                backgroundColor: "rgba(0, 0, 0, 0.08)",
+              },
+            }}
+            >
+              Save Draft
             </Button>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="primary" onClick={handlePublish}>
+            <Button variant="contained" color="primary" onClick={handlePublish}
+            sx={{
+              fontSize: "12px",  
+              width: "150px", 
+              borderRadius: "12px", 
+              height:'45px'
+            }}>
               Publish
             </Button>
           </Grid>
         </Grid>
       </DialogContent>
     </Dialog>
+    </Box>
   );
 };
 

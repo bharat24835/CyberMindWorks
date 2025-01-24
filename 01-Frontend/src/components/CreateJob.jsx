@@ -35,7 +35,7 @@ const CreateJob = ({ fetchAllJobs, open, onClose }) => {
   };
   const handlePublish = async () => {
     try {
-      //  const desc = formData.jobDescription.split("\n");
+      ;
       const desc2 = formData.jobDescription
         .split("\n")
         .filter((ele, i, arr) => {
