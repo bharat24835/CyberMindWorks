@@ -96,7 +96,11 @@ const CardComp2 = ({  job}) => {
           py: 1.5,
           borderRadius: 2,
           textTransform: 'none',
-          fontSize: '1rem'
+          fontSize: '1rem',
+          backgroundColor: '#00AAFF',
+    '&:hover': {
+      backgroundColor: '#007ACC', // Adjust for hover effect
+    }
         }}
       >
         Apply Now
